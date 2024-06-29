@@ -13,14 +13,22 @@ typedef struct
 
 }data_user;
 
-// ESTRUCTURAS DE ACTIVIDADES
+// ESTRUCTURAS TIEMPO
 
-typedef struct activity1 
+typedef struct
 {
     int day;
     int month;
     int year;
     float duracion_hour;
+
+}estructura_tiempo;
+
+// ESTRUCTURAS DE ACTIVIDADES
+
+typedef struct activity1 
+{
+    estructura_tiempo tiempo;
     int distancia;
     struct activity1* left;
     struct activity1* right;
@@ -29,10 +37,7 @@ typedef struct activity1
 
 typedef struct activity2 
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     int distancia;
     struct activity2* left;
     struct activity2* right;
@@ -42,10 +47,7 @@ typedef struct activity2
 
 typedef struct activity3
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     int distancia;
     struct activity3* left;
     struct activity3* right;
@@ -54,10 +56,7 @@ typedef struct activity3
 
 typedef struct activity4
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     int distancia;
     struct activity4* left;
     struct activity4* right;
@@ -66,10 +65,7 @@ typedef struct activity4
 
 typedef struct activity5
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity5* left;
     struct activity5* right;
 
@@ -77,10 +73,7 @@ typedef struct activity5
 
 typedef struct activity6
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity6* left;
     struct activity6* right;
 
@@ -88,10 +81,7 @@ typedef struct activity6
 
 typedef struct activity7
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity7* left;
     struct activity7* right;
 
@@ -99,10 +89,7 @@ typedef struct activity7
 
 typedef struct activity8
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity8* left;
     struct activity8* right;
 
@@ -110,10 +97,7 @@ typedef struct activity8
 
 typedef struct activity9
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity9* left;
     struct activity9* right;
 
@@ -121,10 +105,7 @@ typedef struct activity9
 
 typedef struct activity10
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity10* left;
     struct activity10* right;
 
@@ -132,10 +113,7 @@ typedef struct activity10
 
 typedef struct activity11
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity11* left;
     struct activity11* right;
 
@@ -143,10 +121,7 @@ typedef struct activity11
 
 typedef struct activity12
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity12* left;
     struct activity12* right;
 
@@ -154,14 +129,19 @@ typedef struct activity12
 
 typedef struct activity13
 {
-    int day;
-    int month;
-    int year;
-    float duracion_hour;
+    estructura_tiempo tiempo;
     struct activity13* left;
     struct activity13* right;
 
 }actividad_padel;
+
+typedef struct activity14
+{
+    estructura_tiempo tiempo;
+    struct activity14* left;
+    struct activity14* right;
+
+}actividad_calistenia;
 
 // ESTRUCTURAS LOGROS
 
@@ -190,6 +170,7 @@ typedef struct estructura_activity_tree
     actividad_tenis* tenis;
     actividad_voleibol* voleibol;
     actividad_yoga* yoga;
+    actividad_calistenia* calistenia;
     
 }activity_tree;
 
