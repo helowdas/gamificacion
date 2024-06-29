@@ -25,6 +25,14 @@ typedef struct
 
 }estructura_tiempo;
 
+typedef struct
+{
+    int day;
+    int month;
+    int year;
+
+}estructura_tiempo_logros;
+
 // ESTRUCTURAS DE ACTIVIDADES
 
 typedef struct activity1 
@@ -148,6 +156,7 @@ typedef struct activity14
 
 typedef struct estructura_logros_usuario
 {
+    estructura_tiempo_logros tiempo;
     char logro[300];
     struct estructura_logros_usuario* left;
     struct estructura_logros_usuario* right;
