@@ -8,7 +8,7 @@ typedef struct
     char CI[20];
     char name[50];
     int age;
-    char gen[20];
+    char sex[20];
     float weight;
 
 }data_user;
