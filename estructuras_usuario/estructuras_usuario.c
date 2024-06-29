@@ -10,6 +10,7 @@ typedef struct
     int age;
     char sex[20];
     float weight;
+    int sleep_hour;
 
 }data_user;
 
