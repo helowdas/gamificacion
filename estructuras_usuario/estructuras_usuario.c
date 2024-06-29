@@ -52,8 +52,8 @@ typedef struct activity1
 typedef struct activity2
 {
     estructura_tiempo tiempo;
-    struct activity14* left;
-    struct activity14* right;
+    struct activity2* left;
+    struct activity2* right;
 
 }actividad_type2;
 
