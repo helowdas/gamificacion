@@ -5,7 +5,7 @@
 
 typedef struct
 {
-    char CI[20];
+    char ci[20];
     char name[50];
     int age;
     char sex[20];
