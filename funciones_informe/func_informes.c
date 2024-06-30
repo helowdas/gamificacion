@@ -135,7 +135,7 @@ void informe_horas_mensuales(main_tree* arbol, int mes, int year)
     if(hour_monthly > hour_monthly2)
     {
         printf("\033[33m\n**** NUEVO LOGRO ***\n\033[0m\n");
-        printf("\033[35m¡Felicidades este mes has tenido %d horas de actividad fisica mas que en el anterior!\033[0m\n", hour_monthly-hour_monthly2);
+        printf("\033[35m¡Felicidades este mes has tenido %d horas de actividad fisica mas que en el anterior!\033[0m\n", hour_monthly - hour_monthly2);
         printf("\033[33m\n********************\n\033[0m\n");
     
     }
