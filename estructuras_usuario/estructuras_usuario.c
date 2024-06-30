@@ -46,6 +46,7 @@ typedef struct activity1
     int distancia;
     struct activity1* left;
     struct activity1* right;
+    int altura;
 
 }actividad_type1;
 
@@ -54,6 +55,7 @@ typedef struct activity2
     estructura_tiempo tiempo;
     struct activity2* left;
     struct activity2* right;
+    int altura;
 
 }actividad_type2;
 
@@ -65,6 +67,7 @@ typedef struct estructura_logros_usuario
     char logro[300];
     struct estructura_logros_usuario* left;
     struct estructura_logros_usuario* right;
+    int altura;
 
 }logros_user;
 
