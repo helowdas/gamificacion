@@ -98,7 +98,7 @@ int imprimir_hash(int clave, char nombre_usuario[], int imc){ //pido imc para im
         printf("Altura: %.2f\n", tabla_hash[index]->altura);
         printf("IMC: %.2f", tabla_hash[index]->imc);  estado_peso(imc);
         printf("Sueño: %.2f\n", tabla_hash[index]->sueño);
-        printf("Actividad a años: %.2f\n", tabla_hash[index]->actividad_años); 
+        printf("Años haciendo actividad fisica: %.2f\n", tabla_hash[index]->actividad_años); 
         return 1; //usuario impreso
     }
     else{
@@ -133,6 +133,21 @@ int buscar(int clave, char nombre_usuario[], int imc){ //pido imc para imprimir 
         printf("El usuario no existe dentro de la tabla.\n"); 
         return 0;
     }
+}
+
+int buscar_persona(int clave, char nombre_usuario[]){ //esta funcion es especificamente para buscar una persona sin imprimir sus datos adiconales
+    int index = funcion_hash(clave, nombre_usuario);
+    if (index < 0 || index >= tam) {
+        printf("Indice invalido.\n");
+        return 0;
+    }
+
+    if (tabla_hash[index] != NULL) {
+        return 1; //usuario encontrado
+    } else {
+        return 0; //usuario no encontrado
+    }
+
 }
 
 void borrar_tabla_hash(user_data *tabla){

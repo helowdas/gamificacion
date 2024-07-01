@@ -19,15 +19,13 @@ typedef struct {
     float imc; // datos de masa corporal 
     float actividad_años;
     float sueño;
-
 }user_data; 
 
 typedef struct{
-    int capacidad;
     user_data* tabla;
 }Tabla_hash; 
 
-user_data* tabla_hash[tam];
+user_data* tabla_hash[tam]; //tabla hash 
 
 int funcion_hash(int clave, char nombre_usuario[]); //para calcular la clave hash 
 
@@ -44,6 +42,8 @@ int imprimir_hash(int clave, char nombre_usuario[], int imc); //retorna 1 si se 
 void borrar_tabla_hash(user_data *tabla);
 
 int buscar(int clave, char nombre_usuario[], int imc);
+
+int buscar_persona(int clave, char nombre_usuario[]); 
 
 
 
