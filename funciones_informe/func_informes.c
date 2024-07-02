@@ -1,6 +1,8 @@
 # include <stdio.h>
 # include <time.h>
-# include "estructuras_usuario//estructuras_usuario.h"
+# include "estructuras_usuario/estructuras_usuario.h"
+# include "funciones_informe/funciones_carvajal/fecha.h"
+# include "funciones_carvajal/fecha.h"
 
 // FUNCION DE MESES
 
@@ -62,7 +64,7 @@ int preOrden_activity_type2(actividad_type2* nodo, int* hour_monthly, int mes, i
         mes = 13;
         year = year-1;
     }
-    if(nodo->tiempo.month = mes-1 && nodo->tiempo.year == year)
+    if(nodo->tiempo.month == mes-1 && nodo->tiempo.year == year)
     {
         *hour_monthly += nodo->tiempo.duracion_hour;
     }
@@ -81,7 +83,7 @@ int preOrden_activity_type_1(actividad_type1* nodo, int* hour_monthly, int mes, 
         mes = 13;
         year = year-1;
     }
-    if(nodo->tiempo.month = mes-1 && nodo->tiempo.year == year)
+    if(nodo->tiempo.month == mes-1 && nodo->tiempo.year == year)
     {
         *hour_monthly += nodo->tiempo.duracion_hour;
     }
@@ -113,21 +115,33 @@ void informe_horas_mensuales(main_tree* arbol, int mes, int year)
     preOrden_activity_type2(arbol->actividades->yoga, &hour_monthly, mes, year);
 
     int hour_monthly2 = 0;
+    int aux = mes;
+    int aux2 = year;
 
-    preOrden_activity_type2(arbol->actividades->calistenia, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->artes_marciales, &hour_monthly2, mes, year);
-    preOrden_activity_type_1(arbol->actividades->caminar, &hour_monthly2, mes, year);
-    preOrden_activity_type_1(arbol->actividades->ciclismo, &hour_monthly2, mes, year);
-    preOrden_activity_type_1(arbol->actividades->correr, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->crossfit, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->futbol, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->levantamiento_pesas, &hour_monthly2, mes, year);
-    preOrden_activity_type_1(arbol->actividades->nadar, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->padel, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->pilates, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->tenis, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->voleibol, &hour_monthly2, mes, year);
-    preOrden_activity_type2(arbol->actividades->yoga, &hour_monthly2, mes, year);
+    if (aux == 1)
+    {
+        aux = 12;
+        aux2 -= 1;
+    }
+    else
+    {
+        aux -= 1;
+    }
+
+    preOrden_activity_type2(arbol->actividades->calistenia, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->artes_marciales, &hour_monthly2, aux, aux2);
+    preOrden_activity_type_1(arbol->actividades->caminar, &hour_monthly2, aux, aux2);
+    preOrden_activity_type_1(arbol->actividades->ciclismo, &hour_monthly2, aux, aux2);
+    preOrden_activity_type_1(arbol->actividades->correr, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->crossfit, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->futbol, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->levantamiento_pesas, &hour_monthly2, aux, aux2);
+    preOrden_activity_type_1(arbol->actividades->nadar, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->padel, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->pilates, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->tenis, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->voleibol, &hour_monthly2, aux, aux2);
+    preOrden_activity_type2(arbol->actividades->yoga, &hour_monthly2, aux, aux2);
 
     printf("\n-----------------------------------------------------------\n");
     printf("   Tus Horas de actividad fisica del mes %s fueron: %d\n", mes_name((mes==1)?12:mes-1), hour_monthly);
@@ -138,7 +152,13 @@ void informe_horas_mensuales(main_tree* arbol, int mes, int year)
         printf("\033[33m\n**** NUEVO LOGRO ***\n\033[0m\n");
         printf("\033[35m¡Felicidades este mes has tenido %d horas de actividad fisica mas que en el anterior!\033[0m\n", hour_monthly - hour_monthly2);
         printf("\033[33m\n********************\n\033[0m\n");
-    
+        
+        char cad[300];
+        sprintf(cad, "Felicidades este mes has tenido %d horas de actividad fisica mas que en el anterior!", hour_monthly - hour_monthly2);
+        tiempo* temp;
+        obtenerFecha(&temp);
+        logros_user* logro = crearlogros_user(temp->dia, temp->mes, temp->year, cad);
+        insertar(arbol->logros, temp->year);
     }
 
     
