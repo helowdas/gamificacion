@@ -60,3 +60,4 @@ void logro_distancia(main_tree* arbol, actividad_type1* actividad, int distancia
         insertar(arbol->logros, temp->year);
     }
 }
+
