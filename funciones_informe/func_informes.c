@@ -2,7 +2,7 @@
 # include <time.h>
 # include "estructuras_usuario/estructuras_usuario.h"
 # include "funciones_informe/funciones_carvajal/fecha.h"
-# include "funciones_carvajal/fecha.h"
+
 
 // FUNCION DE MESES
 
