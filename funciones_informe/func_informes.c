@@ -1,7 +1,6 @@
 # include <stdio.h>
-# include <time.h>
 # include "estructuras_usuario/estructuras_usuario.h"
-# include "funciones_informe/funciones_carvajal/fecha.h"
+# include "funciones_carvajal/data.h"
 
 
 // FUNCION DE MESES
@@ -155,10 +154,7 @@ void informe_horas_mensuales(main_tree* arbol, int mes, int year)
         
         char cad[300];
         sprintf(cad, "Felicidades este mes has tenido %d horas de actividad fisica mas que en el anterior!", hour_monthly - hour_monthly2);
-        tiempo* temp;
-        obtenerFecha(&temp);
-        logros_user* logro = crearlogros_user(temp->dia, temp->mes, temp->year, cad);
-        insertar(arbol->logros, temp->year);
+        pedirLogro(arbol, cad);
     }
 
     

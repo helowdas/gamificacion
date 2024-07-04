@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include "estructuras_usuario/estructuras_usuario.h"
-# include "funciones_informe/funciones_carvajal/fecha.h"
+# include "funciones_carvajal/data.h"
 
 
 // FUNCION LOGRO PESO
@@ -15,10 +15,7 @@ void logro_peso(main_tree* arbol, float peso)
         
         char cad[300];
         sprintf(cad, "Increible has rebajado %.2f kilos en comparacion con tu peso anterior", arbol->datos_usuario->weight - peso);
-        tiempo* temp;
-        obtenerFecha(&temp);
-        logros_user* logro = crearlogros_user(temp->dia, temp->mes, temp->year, cad);
-        insertar(arbol->logros, temp->year);
+        pedirLogro(arbol, cad);
     }
 }
 
@@ -54,10 +51,7 @@ void logro_distancia(main_tree* arbol, actividad_type1* actividad, int distancia
         
         char cad[300];
         sprintf(cad, "WoW has superado por %d metros tu record de distancia recorrida", distancia - distancia_2);
-        tiempo* temp;
-        obtenerFecha(&temp);
-        logros_user* logro = crearlogros_user(temp->dia, temp->mes, temp->year, cad);
-        insertar(arbol->logros, temp->year);
+        pedirLogro(arbol, cad);
     }
 }
 
