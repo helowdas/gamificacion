@@ -76,11 +76,3 @@ void menu_usuario(){
             return;
         }
 }
-
-/*int main(){
-    
-    //insertar_usuario(31444815, "Pedro Delgadillo");
-    menu_usuario(); 
-    //login("Pedro Delgadillo", 31444815);
-    return 0;
-}*/
